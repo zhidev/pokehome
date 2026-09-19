@@ -25,7 +25,7 @@ const nodeTypes = {
 function App() {
   const [count, setCount] = useState(0)
   const [importText, setImportText] = useState()
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [personalNodes, setPersonalNodes, onPersonalNodesChange] = useNodesState(initialNodes);
 
   function onSubmit(event) {
     event.preventDefault();
@@ -33,20 +33,20 @@ function App() {
 
     const formData = new FormData(event.currentTarget);
     const species = formData.get('importField');
-    addPokemon(species, setNodes);
+    addPokemon(species, setPersonalNodes);
   }
 
   return (
     <div>
       <PokemonCanvas
-        nodes={nodes}
+        nodes={personalNodes}
         nodeTypes={nodeTypes}
-        onNodesChange={onNodesChange}
+        onNodesChange={onPersonalNodesChange}
       />
 
       <PokemonSidebar
         onSubmit={onSubmit}
-        nodeCount={nodes.length}
+        nodeCount={personalNodes.length}
       />
     </div>
   )
