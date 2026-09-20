@@ -1,7 +1,7 @@
 import {useState, useRef} from 'react'
 import './RotomDex.css'
 import ImportPokemonForm from '../ImportPokemonForm.jsx';
-import rotomDexImage from '../../assets/rotomDex.png';
+import rotomDexImage from '../../assets/rotomdex.png';
 import rotomClosedImage from '../../assets/pokeball.png';
 import rotomOpenedImage from '../../assets/powerbutton.png'
 
