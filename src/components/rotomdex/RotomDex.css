@@ -1,64 +1,101 @@
-.rotomDex {
-    position: fixed;
-    width: 300px;
-    height: 400px;
+.rotomDexWrapper {
+  position: fixed;
+  width: 200px;
+}
 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+.rotomDex {
+  position: relative;
+  width: 200px;
+  height: 250px;
 }
 
 .rotomDex.hidden {
   display: none;
 }
 
-.rotomDexDragHandle {
-  cursor: grab;
-  user-select: none;
-}
-
-.rotomDexDragHandle:active {
-  cursor: grabbing;
-}
-
 .rotomDex .importPokemonForm {
   position: relative;
-  top: 145px;
-  left: -7px;
-  width:  305px;
+  top: 85px;
+  left: -45px;
+  width: 300px;
   height: 300px;
 }
 
 .rotomDex textarea {
-  background: transparent;
-  width: 100%;
-  width: 170px;
-  height: 100%;
+  width: 160px;
   height: 130px;
-  border: 2px solid transparent;
-  outline: none;
-  box-shadow: none;
-  appearance: none;
-  background: transparent;
-}
 
-.rotomDex textarea::placeholder {
+  background: transparent;
   color: white;
+
   border: 2px solid transparent;
   outline: none;
   box-shadow: none;
   appearance: none;
-  background: transparent;
-}
 
-.rotomDex textarea {
-    color: white;
-    text-shadow:
+  resize: none;
+
+  text-shadow:
     -1px -1px 0 turquoise,
      1px -1px 0 turquoise,
     -1px  1px 0 turquoise,
      1px  1px 0 turquoise;
-    resize: none;
-    outline: none;
-    
+}
+
+.rotomDex textarea::placeholder {
+  color: white;
+}
+
+.rotomDexImage {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  object-fit: contain;
+}
+
+.rotomDexToggleButton {
+  position: absolute;
+
+  top: 55px;
+  left:85%;
+  transform: translateX(-50%);
+
+  width: 50px;
+  height: 50px;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  z-index: 2;
+}
+
+.rotomDexToggleButton img {
+  width: 25px;
+  height: 25px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  object-fit: contain;
+  display: block;
+}
+
+.rotomDexToggleButton.open img {
+  width: 15px;
+  height: 15px;
+}
+
+.rotomDexToggleButton.closed img {
+  width: 32px;
+  height: 32px;
 }
