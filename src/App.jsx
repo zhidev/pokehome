@@ -8,6 +8,7 @@ import pokeball_icon from './assets/pokeball_icon.webp'
 import PokemonImageNode from './pokemon/PokemonImageNode.jsx';
 import {createPokemonNode, addPokemon} from './pokemon/PokemonNode.jsx'
 import PokemonSidebar from './components/PokemonSidebar.jsx';
+import RotomDex from './components/rotomdex/RotomDex.jsx'
 
 import PokemonCanvas from './components/PokemonCanvas.jsx'
 import ImportPokemonForm from './components/ImportPokemonForm.jsx';
@@ -47,6 +48,12 @@ function App() {
         onSubmit={onSubmit}
         nodeCount={personalNodes.length}
       />
+
+      <RotomDex
+        onSubmit={onSubmit}
+        nodeCount={personalNodes.length}
+      />
+
     </div>
   )
 
