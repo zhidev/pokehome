@@ -42,3 +42,12 @@
     height: 150px;
     font-size: 12px;
 }
+
+.importPokemonForm button {
+    background-color: blue;
+    color: white
+}
+
+#importField:focus {
+  outline: 2px solid rgb(17, 9, 9);
+}

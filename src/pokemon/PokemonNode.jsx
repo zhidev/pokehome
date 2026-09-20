@@ -13,7 +13,11 @@ export function createPokemonNode(species, image, x, y) {
     position: { x, y },
     data: { 
       image,
-      species
+      species,
+      // ability,
+      // moves: [
+
+      // ]
     },
 
     style: {
@@ -27,7 +31,8 @@ export function createPokemonNode(species, image, x, y) {
 }
 
 export function addPokemon(species, setNodes){
-      console.log("Debug inside AddPokemon")
+  console.log("Debug inside AddPokemon")
+  console.log(species)
 
   const speciesImage = getPokemonImageUrl(species);
   const newNode = createPokemonNode(

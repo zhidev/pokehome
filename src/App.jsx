@@ -5,13 +5,16 @@ import '@xyflow/react/dist/style.css';
 import dragonair from './Dragonair.png'
 import dragapult from './Dragapult.png'
 import pokeball_icon from './assets/pokeball_icon.webp'
-import PokemonImageNode from './nodes/PokemonImageNode.jsx';
-import {createPokemonNode, addPokemon} from './nodes/PokemonNode.jsx'
+import PokemonImageNode from './pokemon/PokemonImageNode.jsx';
+import {createPokemonNode, addPokemon} from './pokemon/PokemonNode.jsx'
 import PokemonSidebar from './components/PokemonSidebar.jsx';
 
 import PokemonCanvas from './components/PokemonCanvas.jsx'
 import ImportPokemonForm from './components/ImportPokemonForm.jsx';
+import {parsePokemonImport} from './pokemon/parsePokemonImport.jsx';
+import { handlePokemonImport } from './pokemon/handlePokemonImport';
 const MAX_MON_NODES = 90;
+
 
 /* For Default Starting Node for Testing */
 const initialNodes =[   
@@ -28,15 +31,11 @@ function App() {
   const [personalNodes, setPersonalNodes, onPersonalNodesChange] = useNodesState(initialNodes);
 
   function onSubmit(event) {
-    event.preventDefault();
-    console.log(event)
-
-    const formData = new FormData(event.currentTarget);
-    const species = formData.get('importField');
-    addPokemon(species, setPersonalNodes);
+    handlePokemonImport(event, setPersonalNodes)
   }
 
   return (
+    
     <div>
       <PokemonCanvas
         nodes={personalNodes}
