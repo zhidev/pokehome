@@ -3,7 +3,7 @@ import pokeball_icon from '../assets/pokeball_icon.webp'
 import './PokemonSidebar.css';
 import { useState } from "react"; 
 
-function PokemonSidebar({onSubmit, nodeCount}){
+function PokemonSidebar({drawMode, setDrawMode}){
     const [sidebarOpen, setSidebarOpen] = useState(false);
     
     return (
@@ -13,10 +13,23 @@ function PokemonSidebar({onSubmit, nodeCount}){
           onClick={()=> setSidebarOpen(!sidebarOpen)}>
              <img src={pokeball_icon} alt="Open sidebar" />
         </button>
-        <ImportPokemonForm
-          onSubmit={onSubmit}
-          nodeCount={nodeCount}
-        />
+
+        {/* <div className="sidebarSettings">
+            <button
+              onClick{ ()=> setDrawMode((current) => !current)}
+            >
+              {drawMode ? 'Exit Draw Mode' : 'Enter Draw Mode'}
+            </button>
+        </div> */}
+
+        <div className="sidebarSettings">
+          <button
+             onClick={() => setDrawMode((current) => !current)}
+          >
+            {drawMode ? 'Exit Draw Mode' : 'Enter Draw Mode'}
+          </button>
+
+        </div>
       </aside>
     );
 }

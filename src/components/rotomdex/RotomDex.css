@@ -3,6 +3,32 @@
   width: 200px;
 }
 
+/*idk y but this section is needed, fix later */
+.importPokemonForm button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    /*following is for moving the enter relative to RotomDex */
+    position: absolute;
+
+    left: 190px;
+    top: 115px;
+    display: block;
+    /* keeps proportions */
+    height: auto; 
+}
+
+/* enter image */
+.importPokemonButton img {
+  width: 20px;
+  height: auto;
+  display: block;
+}
+
+#importField:focus {
+  outline: 2px solid cyan;
+}
+
 .rotomDex {
   position: relative;
   width: 200px;

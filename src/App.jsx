@@ -30,6 +30,7 @@ function App() {
   const [count, setCount] = useState(0)
   const [importText, setImportText] = useState()
   const [personalNodes, setPersonalNodes, onPersonalNodesChange] = useNodesState(initialNodes);
+  const [drawMode, setDrawMode] = useState(false)
 
   function onSubmit(event) {
     handlePokemonImport(event, setPersonalNodes)
@@ -42,11 +43,12 @@ function App() {
         nodes={personalNodes}
         nodeTypes={nodeTypes}
         onNodesChange={onPersonalNodesChange}
+        drawMode={drawMode}
       />
 
       <PokemonSidebar
-        onSubmit={onSubmit}
-        nodeCount={personalNodes.length}
+        drawMode={drawMode}
+        setDrawMode={setDrawMode}
       />
 
       <RotomDex

@@ -44,27 +44,3 @@
     resize: none;
 } */
 
-.importPokemonForm button {
-    background-color: transparent;
-    color: white;
-    border: none;
-    /*following is for moving the enter relative to RotomDex */
-    position: absolute;
-
-    left: 190px;
-    top: 115px;
-    display: block;
-    /* keeps proportions */
-    height: auto; 
-}
-
-/* enter image */
-.importPokemonButton img {
-  width: 20px;
-  height: auto;
-  display: block;
-}
-
-#importField:focus {
-  outline: 2px solid cyan;
-}
