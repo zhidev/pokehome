@@ -46,6 +46,7 @@ function PokemonSidebar({drawMode, setDrawMode, brushColor, setBrushColor}){
         <div className="sidebarSettings">
           <button
              onClick={() => setDrawMode((current) => !current)}
+             
           >
             {drawMode ? 'Exit Draw Mode' : 'Enter Draw Mode'}
           </button>

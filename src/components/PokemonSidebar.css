@@ -123,3 +123,7 @@
   object-fit: contain;
 }
 
+.sidebarSettings button {
+  background-color: black;
+  color: white;
+}
