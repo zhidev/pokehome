@@ -4,7 +4,7 @@ import DrawingLayer from './DrawingLayer';
 
 
 
-function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode}){
+function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, brushColor}){
     return (
         <div style={{ width: '100vw', height: '90vh' }}>
             <ReactFlow 
@@ -16,7 +16,10 @@ function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode}){
             //if draw mode, nodes shouldnt be draggable. so if not draw mode can drag
             nodesDraggable={!drawMode}
             >
-                <DrawingLayer drawMode={drawMode} />
+                <DrawingLayer 
+                    drawMode={drawMode} 
+                    brushColor={brushColor}
+                />
             </ReactFlow>
         </div>
     );

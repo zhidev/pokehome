@@ -3,7 +3,7 @@ import pokeball_icon from '../assets/pokeball_icon.webp'
 import './PokemonSidebar.css';
 import { useState } from "react"; 
 
-function PokemonSidebar({drawMode, setDrawMode}){
+function PokemonSidebar({drawMode, setDrawMode, brushColor, setBrushColor}){
     const [sidebarOpen, setSidebarOpen] = useState(false);
     
     return (
@@ -29,6 +29,30 @@ function PokemonSidebar({drawMode, setDrawMode}){
             {drawMode ? 'Exit Draw Mode' : 'Enter Draw Mode'}
           </button>
 
+          {/* <div className="colorPickerImage">
+            <input
+              type="color"
+              value={brushColor}
+              onChange={(event) => setBrushColor(event.target.value)}
+            />
+
+          </div> */}
+          <label className="colorPickerButton">
+
+          <div
+            className="colorPickerImage"
+            style={{
+              '--brush-color': brushColor
+            }}
+          />
+
+          <input
+            type="color"
+            value={brushColor}
+            onChange={(event) => setBrushColor(event.target.value)}
+          />
+
+        </label>
         </div>
       </aside>
     );

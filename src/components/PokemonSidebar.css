@@ -44,3 +44,58 @@
     resize: none;
 } */
 
+.colorPickerButton {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.colorPickerImage {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+/* Shared settings for both image layers */
+.colorPickerImage::before,
+.colorPickerImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Color-changing fill */
+.colorPickerImage::before {
+  background-color: var(--brush-color);
+
+  mask-image: url('../assets/ditto_fill.png');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  -webkit-mask-image: url('../assets/ditto_fill.png');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+/* Black outline */
+.colorPickerImage::after {
+  background-image: url('../assets/ditto_outline.png');
+}
+
+/* Invisible color input sits over Ditto */
+.colorPickerButton input {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  cursor: pointer;
+}

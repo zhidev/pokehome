@@ -3,7 +3,7 @@ import { useState } from "react"
 import {useReactFlow, ViewportPortal } from '@xyflow/react'
 import smearglePaint from '../assets/smeargle.png'
 
-function DrawingLayer({drawMode}){
+function DrawingLayer({drawMode, brushColor}){
     //strokes = finished drawing/strokes
     const [strokes, setStrokes] = useState([])
     //current active drawing
@@ -22,8 +22,13 @@ function DrawingLayer({drawMode}){
             y: event.clientY
         })
         console.log("START POINT:", point);
+        console.log("BRUSH COLOR:", brushColor);
         /*starts new stroke, coordinate location of the mouse within the canvas notthe browser*/       
         setActiveStroke([point]);
+        setActiveStroke({
+            color: brushColor,
+            points: [point]
+        });
         event.currentTarget.setPointerCapture(event.pointerId);
 
     } /* end of start drawing */
@@ -39,10 +44,13 @@ function DrawingLayer({drawMode}){
         console.log("DRAW POINT:", point);
         
         /* state modifier*/       
-        setActiveStroke((currentStroke) => [
+        setActiveStroke((currentStroke) => ({
             ...currentStroke,
-            point
-        ]);
+            points: [
+                ...currentStroke.points,
+                point
+            ]
+        }));
     } /*end of draw */
 
 
@@ -78,29 +86,31 @@ function DrawingLayer({drawMode}){
                     {strokes.map((stroke,index) => (
                         <polyline
                             key={index}
-                            points={stroke
+                            points={stroke.points
                                 .map((point) => `${point.x},${point.y}`)
                                 .join(' ')
                             }
                             fill="none"
-                            stroke="black"
-                            strokeWidth="3"
+                            stroke={stroke.color}
+                            strokeWidth="10"
                             strokeLinecap="round"
                             strokeLinejoin="round"
+                            opacity="1"
                         />
                     ))}
                     {/* strokes.map */}
 
                     {activeStroke && (
                         <polyline
-                            points={activeStroke
+                            points={activeStroke.points
                                 .map((point) => `${point.x},${point.y}`)
                                 .join(' ')}
                             fill="none"
-                            stroke="black"
-                            strokeWidth="3"
+                            stroke={activeStroke.color}
+                            strokeWidth="10"
                             strokeLinecap="round"
                             strokeLinejoin="round"
+                            opacity="1"
                         />
                     )}
                     {/*activeStroke*/}
@@ -113,11 +123,12 @@ function DrawingLayer({drawMode}){
                     onPointerDown={startDrawing}
                     onPointerMove={draw}
                     onPointerUp={stopDrawing}
+                    onPointerCancel={stopDrawing}
                     style={{
                         position: 'absolute',
                         inset: 0,
                         zIndex: 10,
-                        cursor: `url(${smearglePaint}) 4 28, crosshair`,
+                        cursor: `url(${smearglePaint}) 4 28, default`,
                         touchAction: 'none'
                     }}
                 />

@@ -31,6 +31,7 @@ function App() {
   const [importText, setImportText] = useState()
   const [personalNodes, setPersonalNodes, onPersonalNodesChange] = useNodesState(initialNodes);
   const [drawMode, setDrawMode] = useState(false)
+  const [brushColor, setBrushColor] = useState('black')
 
   function onSubmit(event) {
     handlePokemonImport(event, setPersonalNodes)
@@ -44,11 +45,14 @@ function App() {
         nodeTypes={nodeTypes}
         onNodesChange={onPersonalNodesChange}
         drawMode={drawMode}
+        brushColor={brushColor}
       />
 
       <PokemonSidebar
         drawMode={drawMode}
         setDrawMode={setDrawMode}
+        brushColor={brushColor}
+        setBrushColor={setBrushColor}
       />
 
       <RotomDex
