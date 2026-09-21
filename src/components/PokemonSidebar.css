@@ -99,3 +99,27 @@
   opacity: 0;
   cursor: pointer;
 }
+
+.unknownHelpButton {
+    position: absolute;
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    display: inline-block;
+    line-height: 0;
+    cursor: pointer;
+    right: 20px;
+    bottom: 20px;
+}
+
+.unknownHelpButton img {
+  width: 32px;
+  height: 32px;
+  display: block;
+  object-fit: contain;
+}
+
