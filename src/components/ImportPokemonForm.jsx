@@ -1,4 +1,3 @@
-import rotomPowerButton from "../assets/powerbutton.png"
 import rotomEnterButton from "../assets/EnterArrow.png"
 
 function ImportPokemonForm({onSubmit, nodeCount}){

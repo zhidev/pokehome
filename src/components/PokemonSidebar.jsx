@@ -1,4 +1,3 @@
-import ImportPokemonForm from "./ImportPokemonForm";
 import pokeball_icon from '../assets/pokeball_icon.webp'
 import unown_icon from '../assets/unownquestionmark.png'
 import './PokemonSidebar.css';
