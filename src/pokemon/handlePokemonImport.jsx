@@ -4,7 +4,7 @@ import { isValidPokemon } from './validatePokemon';
 
 
 //For onSubmit for imports
-export function handlePokemonImport(event, setPersonalNodes){
+export function handlePokemonImport(event, setPersonalNodes,position){
     event.preventDefault();
     console.log(event)
     const formData = new FormData(event.currentTarget);
@@ -15,7 +15,7 @@ export function handlePokemonImport(event, setPersonalNodes){
     importedPokemonText.forEach((pokemon)=> {
       //This step may be redundant
       if(isValidPokemon(pokemon.species)){
-       addPokemon(pokemon.species, setPersonalNodes);
+       addPokemon(pokemon.species, setPersonalNodes,position);
       }else{
         console.log("Invalid import: ", pokemon.species)
       }

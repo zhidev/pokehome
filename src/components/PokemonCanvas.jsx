@@ -3,8 +3,12 @@ import '@xyflow/react/dist/style.css';
 import DrawingLayer from './DrawingLayer';
 
 
+const CANVAS_EXTENT = [
+    [-700, -700],
+    [1800, 700]
+];
 
-function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, brushColor}){
+function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, brushColor, setReactFlowInstance}){
     return (
         <div style={{ width: '100vw', height: '90vh' }}>
             <ReactFlow 
@@ -12,9 +16,11 @@ function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, brushColor}){
             edges={[]} 
             nodeTypes={nodeTypes}
             onNodesChange={onNodesChange}
-            panOnDrag={false}
+            onInit={setReactFlowInstance}
+            panOnDrag={!drawMode}
             //if draw mode, nodes shouldnt be draggable. so if not draw mode can drag
             nodesDraggable={!drawMode}
+            translateExtent={CANVAS_EXTENT}
             >
                 <DrawingLayer 
                     drawMode={drawMode} 

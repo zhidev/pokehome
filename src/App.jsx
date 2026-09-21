@@ -31,10 +31,18 @@ function App() {
   const [importText, setImportText] = useState()
   const [personalNodes, setPersonalNodes, onPersonalNodesChange] = useNodesState(initialNodes);
   const [drawMode, setDrawMode] = useState(false)
-  const [brushColor, setBrushColor] = useState('black')
+  const [brushColor, setBrushColor] = useState('#9b8ec4')
+  const [reactFlowInstance, setReactFlowInstance] = useState(null);
 
   function onSubmit(event) {
-    handlePokemonImport(event, setPersonalNodes)
+    event.preventDefault();
+
+    const position = reactFlowInstance.screenToFlowPosition({
+      x: window.innerWidth / 2,
+      y: window.innerHeight * 3 / 4 
+    });
+
+    handlePokemonImport(event, setPersonalNodes, position)
   }
 
   return (
@@ -46,6 +54,7 @@ function App() {
         onNodesChange={onPersonalNodesChange}
         drawMode={drawMode}
         brushColor={brushColor}
+        setReactFlowInstance={setReactFlowInstance}
       />
 
       <PokemonSidebar
