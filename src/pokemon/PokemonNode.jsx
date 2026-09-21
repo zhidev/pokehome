@@ -34,8 +34,8 @@ export function addPokemon(species, setNodes, position){
   console.log("Debug inside AddPokemon")
   console.log(species)
 
-  const newX = position.x + (Math.random() * 50 - 25)
-  const newY = position.y + (Math.random() * 50 - 25)
+  const newX = position.x + (Math.random() * 200 - 100)
+  const newY = position.y + (Math.random() * 200 - 100)
 
   const speciesImage = getPokemonImageUrl(species);
   const newNode = createPokemonNode(
