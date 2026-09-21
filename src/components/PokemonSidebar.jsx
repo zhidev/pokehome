@@ -22,22 +22,8 @@ function PokemonSidebar({drawMode, setDrawMode, brushColor, setBrushColor}){
             </button>
         </div> */}
 
-        <div className="sidebarSettings">
-          <button
-             onClick={() => setDrawMode((current) => !current)}
-          >
-            {drawMode ? 'Exit Draw Mode' : 'Enter Draw Mode'}
-          </button>
 
-          {/* <div className="colorPickerImage">
-            <input
-              type="color"
-              value={brushColor}
-              onChange={(event) => setBrushColor(event.target.value)}
-            />
-
-          </div> */}
-          <label className="colorPickerButton">
+                  <label className="colorPickerButton">
 
           <div
             className="colorPickerImage"
@@ -53,6 +39,22 @@ function PokemonSidebar({drawMode, setDrawMode, brushColor, setBrushColor}){
           />
 
         </label>
+        <div className="sidebarSettings">
+          <button
+             onClick={() => setDrawMode((current) => !current)}
+          >
+            {drawMode ? 'Exit Draw Mode' : 'Enter Draw Mode'}
+          </button>
+
+          {/* <div className="colorPickerImage">
+            <input
+              type="color"
+              value={brushColor}
+              onChange={(event) => setBrushColor(event.target.value)}
+            />
+
+          </div> */}
+
         </div>
       </aside>
     );
