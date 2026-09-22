@@ -14,18 +14,34 @@
   height: 32px;
 
   border: 2px solid white;
-  border-radius: 8px;
+  border-radius: 3px;
 
   outline: none;
   box-shadow: none;
 
   cursor: pointer;
-  background-color: transparent;
+  background-color: black;
   color: white;
+
+  text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+
+ box-shadow: 0 0 4px black,
 }
+
 .presetDescription {
    width: 100%;
    min-height: 80px;
+
+   color: white;
+   text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
 }
 
 .presetSelector option {
@@ -36,4 +52,19 @@
 .presetDescription {
   white-space: pre-wrap;
   width: 100%;
+}
+
+.applyPresetButton {
+  margin-top: 10px;
+
+  padding: 6px 12px;
+
+  background-color: black;
+  color: white;
+
+  border: 2px solid white;
+
+  box-shadow: 0 0 4px black;
+
+  cursor: pointer;
 }
