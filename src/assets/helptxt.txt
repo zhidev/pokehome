@@ -6,4 +6,8 @@ You can draw on their plaing field! And zoom in and out and move around a bit.
 
 Selecting the ditto lets you change colors! Remember to stop drawing to move stuff around!
 
+Enter draw mode disables erase mode and vice versa. Clear canvas to get rid of all drawings (and pokemon nodes, need fix this later)
+
 Click the pokeball to open the RotomDex and you can import your box. Or just import random mons with just their name Capitalized 
+
+Some presets loaded for background. Will do a proper credits page
