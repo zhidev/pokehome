@@ -8,7 +8,7 @@ const CANVAS_EXTENT = [
     [1800, 700]
 ];
 
-function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, brushColor, 
+function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, eraseMode, brushColor, 
     canvasReset, setCanvasReset, setReactFlowInstance}){
     return (
         <div style={{ width: '100vw', height: '90vh' }}>
@@ -25,6 +25,7 @@ function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, brushColor,
             >
                 <DrawingLayer 
                     drawMode={drawMode} 
+                    eraseMode={eraseMode}
                     brushColor={brushColor}
                     canvasReset={canvasReset}
                     setCanvasReset={setCanvasReset}

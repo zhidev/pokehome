@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import {useReactFlow, ViewportPortal } from '@xyflow/react'
 import smearglePaint from '../assets/smeargle.png'
 
-function DrawingLayer({drawMode, brushColor, canvasReset, setCanvasReset}){
+function DrawingLayer({drawMode, eraseMode, brushColor, canvasReset, setCanvasReset}){
     //strokes = finished drawing/strokes
     const [strokes, setStrokes] = useState([])
     //current active drawing
@@ -24,14 +24,54 @@ function DrawingLayer({drawMode, brushColor, canvasReset, setCanvasReset}){
 
         }, [canvasReset,setCanvasReset]);
 
+    function handlePointerDown(event) {
+        if (drawMode) {
+            startDrawing(event);
+        } else if (eraseMode) {
+            eraseStroke(event);
+        }
+    }
+
+    function handlePointerMove(event) {
+        if (drawMode) {
+            draw(event);
+        } else if (eraseMode && event.buttons ===1) {
+            eraseStroke(event);
+        }
+    }
+
+
+    function eraseStroke(event) {
+    const point = screenToFlowPosition({
+        x: event.clientX,
+        y: event.clientY
+    });
+
+    console.log("ERASE POINT:", point);
+
+    const eraseRadius = 15;
+
+    setStrokes((currentStrokes) =>
+    currentStrokes.filter((stroke) =>
+        !stroke.points.some((strokePoint) => {
+        const distanceX = strokePoint.x - point.x;
+        const distanceY = strokePoint.y - point.y;
+
+        const distance = Math.sqrt(
+            distanceX * distanceX +
+            distanceY * distanceY
+        );
+
+        return distance < eraseRadius;
+        })
+    )
+    );
+
+    }
+
     function startDrawing(event){
-        
-
         if (!drawMode)
-            return;
-
-
-        
+            return; 
         /* moue to grab browser coordinates */
         const point = screenToFlowPosition({
             x: event.clientX,
@@ -133,11 +173,11 @@ function DrawingLayer({drawMode, brushColor, canvasReset, setCanvasReset}){
                 </svg>
             </ViewportPortal>
 
-            {/*start of drawMode */}
-            {drawMode && (
-                <div
-                    onPointerDown={startDrawing}
-                    onPointerMove={draw}
+            {/*start of drawMode / erase mode */}
+                {(drawMode || eraseMode) && (                
+                  <div
+                    onPointerDown={handlePointerDown}
+                    onPointerMove={handlePointerMove}
                     onPointerUp={stopDrawing}
                     onPointerCancel={stopDrawing}
                     style={{

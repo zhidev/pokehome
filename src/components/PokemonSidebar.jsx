@@ -5,11 +5,10 @@ import { useState } from "react";
 import HelpPopup from './HelpPopup.jsx';
 import PresetSelector from "./PresetSelector.jsx";
 
-function PokemonSidebar({drawMode, setDrawMode, brushColor, 
+function PokemonSidebar({toolMode, setToolMode, brushColor, 
   setBrushColor, clearCanvas, onApplyPreset}){
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState('mode1');
 
     return (
     <>
@@ -35,32 +34,48 @@ function PokemonSidebar({drawMode, setDrawMode, brushColor,
           />
 
         </label>
-        <div className="sidebarSettings">
+        <div className="toolButtons">
           <button
-             onClick={() => setDrawMode((current) => !current)}
-             
+            onClick={() =>
+              // If already in draw mode, exit to "none".
+              // Otherwise, switch into draw mode.
+              setToolMode((current) =>
+                current === "draw" ? "none" : "draw"
+              )
+            }
           >
-            {drawMode ? 'Exit Draw Mode' : 'Enter Draw Mode'}
+            {toolMode === "draw" ? "Exit Draw Mode" : "Enter Draw Mode"}
+          </button>
+
+          <button
+            onClick={() =>
+              // If already in erase mode, exit to "none".
+              // Otherwise, switch into erase mode.
+              setToolMode((current) =>
+                current === "erase" ? "none" : "erase"
+              )
+            }
+          >
+            {toolMode === "erase" ? "Exit Erase Mode" : "Enter Erase Mode"}
           </button>
 
 
+          <button
+            className='clearCanvasButton'
+            onClick={clearCanvas}
+          >
+            Clear Canvas
+          </button>
+          <button 
+            className="unknownHelpButton"
+            onClick={() => setHelpOpen((current) => !current)}
+          >
+              <img
+                src={unown_icon}
+                alt="Help"
+              />
+          </button>
         </div>
-        <button
-          className='clearCanvasButton'
-          onClick={clearCanvas}
-        >
-          Clear Canvas
-        </button>
-        <button 
-          className="unknownHelpButton"
-          onClick={() => setHelpOpen((current) => !current)}
-        >
-            <img
-              src={unown_icon}
-              alt="Help"
-            />
-        </button>
-
         <PresetSelector 
           onApplyPreset={onApplyPreset}
         />

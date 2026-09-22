@@ -26,10 +26,18 @@ function App() {
   const [count, setCount] = useState(0)
   const [importText, setImportText] = useState()
   const [personalNodes, setPersonalNodes, onPersonalNodesChange] = useNodesState(initialNodes);
-  const [drawMode, setDrawMode] = useState(false)
+  // const [drawMode, setDrawMode] = useState(false)
   const [brushColor, setBrushColor] = useState('#9b8ec4')
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const [canvasReset, setCanvasReset] = useState(false)
+  const [toolMode, setToolMode] = useState("none");
+
+// toolMode = "none"
+// toolMode = "draw"
+// toolMode = "erase"
+  const drawMode = toolMode === "draw";
+  const eraseMode = toolMode === "erase";
+
 
   function clearCanvas(){
     setPersonalNodes([])
@@ -59,6 +67,7 @@ function App() {
         nodeTypes={nodeTypes}
         onNodesChange={onPersonalNodesChange}
         drawMode={drawMode}
+        eraseMode={eraseMode}
         brushColor={brushColor}
         canvasReset={canvasReset}
         setCanvasReset={setCanvasReset}
@@ -66,8 +75,8 @@ function App() {
       />
 
       <PokemonSidebar
-        drawMode={drawMode}
-        setDrawMode={setDrawMode}
+        toolMode={toolMode}
+        setToolMode={setToolMode}
         brushColor={brushColor}
         setBrushColor={setBrushColor}
         clearCanvas={clearCanvas}
