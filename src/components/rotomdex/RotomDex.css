@@ -25,7 +25,7 @@
   display: block;
 }
 
-#importField:focus {
+#importfield:focus {
   outline: 2px solid cyan;
 }
 
@@ -45,6 +45,7 @@
   left: -45px;
   width: 300px;
   height: 300px;
+  
 }
 
 .rotomDex textarea {

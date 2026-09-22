@@ -23,7 +23,7 @@ function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, eraseMode, br
             nodesDraggable={!drawMode}
             translateExtent={CANVAS_EXTENT}
             >
-                //background for present
+                {/* background for present*/}
                 {canvasBackground && (
                     <ViewportPortal>
                         <div
