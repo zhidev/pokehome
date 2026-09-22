@@ -1,0 +1,31 @@
+.canvasBackground {
+  position: absolute;
+
+  left: -700px;
+  top: -700px;
+
+  width: 2500px;
+  height: 1400px;
+
+  z-index: -1;
+  pointer-events: none;
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.canvasBackground.preset1 {
+  background-image: none;
+}
+
+.canvasBackground.preset2 {
+  background-image: url('../assets/tierlistbackground.png');
+}
+
+.canvasBackground.preset3 {
+  background-image: url('../assets/truthbackground.png');
+}
+
+.canvasBackground.preset4 {
+  background-image: url('../assets/idealsbackground.png');
+}

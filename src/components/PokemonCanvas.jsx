@@ -1,7 +1,7 @@
-import { ReactFlow } from '@xyflow/react';
+import { ReactFlow,ViewportPortal } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import DrawingLayer from './DrawingLayer';
-
+import './PokemonCanvas.css';
 
 const CANVAS_EXTENT = [
     [-700, -700],
@@ -9,7 +9,7 @@ const CANVAS_EXTENT = [
 ];
 
 function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, eraseMode, brushColor, 
-    canvasReset, setCanvasReset, setReactFlowInstance}){
+    canvasReset, setCanvasReset, setReactFlowInstance, canvasBackground}){
     return (
         <div style={{ width: '100vw', height: '90vh' }}>
             <ReactFlow 
@@ -23,6 +23,15 @@ function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, eraseMode, br
             nodesDraggable={!drawMode}
             translateExtent={CANVAS_EXTENT}
             >
+                //background for present
+                {canvasBackground && (
+                    <ViewportPortal>
+                        <div
+                            className={`canvasBackground ${canvasBackground}`}
+                        />
+                    </ViewportPortal>
+                )}
+
                 <DrawingLayer 
                     drawMode={drawMode} 
                     eraseMode={eraseMode}

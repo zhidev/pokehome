@@ -10,6 +10,8 @@ import RotomDex from './components/rotomdex/RotomDex.jsx'
 
 import PokemonCanvas from './components/PokemonCanvas.jsx'
 import { handlePokemonImport } from './pokemon/handlePokemonImport';
+import preset1Background from './assets/tierlistbackground.png';
+
 const MAX_MON_NODES = 90;
 
 
@@ -31,6 +33,7 @@ function App() {
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const [canvasReset, setCanvasReset] = useState(false)
   const [toolMode, setToolMode] = useState("none");
+  const [canvasBackground, setCanvasBackground] = useState(null);
 
 // toolMode = "none"
 // toolMode = "draw"
@@ -44,9 +47,9 @@ function App() {
     setCanvasReset(true);
   }
 
-  function applyPreset(selectedPreset) {
-    console.log("Applying preset:", selectedPreset);
-  }
+function applyPreset(selectedPreset) {
+  setCanvasBackground(selectedPreset);
+}
 
   function onSubmit(event) {
     event.preventDefault();
@@ -72,6 +75,7 @@ function App() {
         canvasReset={canvasReset}
         setCanvasReset={setCanvasReset}
         setReactFlowInstance={setReactFlowInstance}
+        canvasBackground={canvasBackground}
       />
 
       <PokemonSidebar
