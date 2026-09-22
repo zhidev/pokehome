@@ -36,6 +36,10 @@ function App() {
     setCanvasReset(true);
   }
 
+  function applyPreset(selectedPreset) {
+    console.log("Applying preset:", selectedPreset);
+  }
+
   function onSubmit(event) {
     event.preventDefault();
 
@@ -67,6 +71,7 @@ function App() {
         brushColor={brushColor}
         setBrushColor={setBrushColor}
         clearCanvas={clearCanvas}
+        onApplyPreset={applyPreset}
       />
 
       <RotomDex

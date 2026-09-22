@@ -1,0 +1,36 @@
+.presetSelector {
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+.presetSelector select {
+    width: 100%;
+    height: 32px;
+
+    border: 2px solid white;
+    border-radius: 8px;
+
+    outline: none;
+    box-shadow: none;
+
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+}
+.presetDescription {
+  width: 100%;
+  min-height: 80px;
+}
+
+.presetSelector option {
+  background-color: black;
+  color: white;
+}
+
+.presetDescription {
+  white-space: pre-wrap;
+  width: 100%;
+}

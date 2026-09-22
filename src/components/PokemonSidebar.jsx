@@ -3,11 +3,14 @@ import unown_icon from '../assets/unownquestionmark.png'
 import './PokemonSidebar.css';
 import { useState } from "react"; 
 import HelpPopup from './HelpPopup.jsx';
+import PresetSelector from "./PresetSelector.jsx";
 
-function PokemonSidebar({drawMode, setDrawMode, brushColor, setBrushColor, clearCanvas}){
+function PokemonSidebar({drawMode, setDrawMode, brushColor, 
+  setBrushColor, clearCanvas, onApplyPreset}){
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
-    
+    const [selectedOption, setSelectedOption] = useState('mode1');
+
     return (
     <>
         <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
@@ -42,7 +45,10 @@ function PokemonSidebar({drawMode, setDrawMode, brushColor, setBrushColor, clear
 
 
         </div>
-        <button onClick={clearCanvas}>
+        <button
+          className='clearCanvasButton'
+          onClick={clearCanvas}
+        >
           Clear Canvas
         </button>
         <button 
@@ -54,6 +60,12 @@ function PokemonSidebar({drawMode, setDrawMode, brushColor, setBrushColor, clear
               alt="Help"
             />
         </button>
+
+        <PresetSelector 
+          onApplyPreset={onApplyPreset}
+        />
+
+        
       </aside>
       {helpOpen && (
         <HelpPopup
