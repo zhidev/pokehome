@@ -29,6 +29,12 @@ function App() {
   const [drawMode, setDrawMode] = useState(false)
   const [brushColor, setBrushColor] = useState('#9b8ec4')
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
+  const [canvasReset, setCanvasReset] = useState(false)
+
+  function clearCanvas(){
+    setPersonalNodes([])
+    setCanvasReset(true);
+  }
 
   function onSubmit(event) {
     event.preventDefault();
@@ -50,6 +56,8 @@ function App() {
         onNodesChange={onPersonalNodesChange}
         drawMode={drawMode}
         brushColor={brushColor}
+        canvasReset={canvasReset}
+        setCanvasReset={setCanvasReset}
         setReactFlowInstance={setReactFlowInstance}
       />
 
@@ -58,6 +66,7 @@ function App() {
         setDrawMode={setDrawMode}
         brushColor={brushColor}
         setBrushColor={setBrushColor}
+        clearCanvas={clearCanvas}
       />
 
       <RotomDex

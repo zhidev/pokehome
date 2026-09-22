@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import {useReactFlow, ViewportPortal } from '@xyflow/react'
 import smearglePaint from '../assets/smeargle.png'
 
-function DrawingLayer({drawMode, brushColor}){
+function DrawingLayer({drawMode, brushColor, canvasReset, setCanvasReset}){
     //strokes = finished drawing/strokes
     const [strokes, setStrokes] = useState([])
     //current active drawing
@@ -12,10 +12,26 @@ function DrawingLayer({drawMode, brushColor}){
     //activate drawing layer
     const {screenToFlowPosition } = useReactFlow();
 
+    useEffect(() => {
+            if(!canvasReset){
+                return;
+            }
+
+            setStrokes([]);
+            setActiveStroke(null);
+
+            setCanvasReset(false);
+
+        }, [canvasReset,setCanvasReset]);
+
     function startDrawing(event){
+        
+
         if (!drawMode)
             return;
 
+
+        
         /* moue to grab browser coordinates */
         const point = screenToFlowPosition({
             x: event.clientX,
@@ -24,7 +40,7 @@ function DrawingLayer({drawMode, brushColor}){
         console.log("START POINT:", point);
         console.log("BRUSH COLOR:", brushColor);
         /*starts new stroke, coordinate location of the mouse within the canvas notthe browser*/       
-        setActiveStroke([point]);
+        // setActiveStroke([point]);
         setActiveStroke({
             color: brushColor,
             points: [point]

@@ -4,7 +4,7 @@ import './PokemonSidebar.css';
 import { useState } from "react"; 
 import HelpPopup from './HelpPopup.jsx';
 
-function PokemonSidebar({drawMode, setDrawMode, brushColor, setBrushColor}){
+function PokemonSidebar({drawMode, setDrawMode, brushColor, setBrushColor, clearCanvas}){
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
     
@@ -16,17 +16,7 @@ function PokemonSidebar({drawMode, setDrawMode, brushColor, setBrushColor}){
           onClick={()=> setSidebarOpen(!sidebarOpen)}>
              <img src={pokeball_icon} alt="Open sidebar" />
         </button>
-
-        {/* <div className="sidebarSettings">
-            <button
-              onClick{ ()=> setDrawMode((current) => !current)}
-            >
-              {drawMode ? 'Exit Draw Mode' : 'Enter Draw Mode'}
-            </button>
-        </div> */}
-
-
-                  <label className="colorPickerButton">
+        <label className="colorPickerButton">
 
           <div
             className="colorPickerImage"
@@ -50,16 +40,11 @@ function PokemonSidebar({drawMode, setDrawMode, brushColor, setBrushColor}){
             {drawMode ? 'Exit Draw Mode' : 'Enter Draw Mode'}
           </button>
 
-          {/* <div className="colorPickerImage">
-            <input
-              type="color"
-              value={brushColor}
-              onChange={(event) => setBrushColor(event.target.value)}
-            />
-
-          </div> */}
 
         </div>
+        <button onClick={clearCanvas}>
+          Clear Canvas
+        </button>
         <button 
           className="unknownHelpButton"
           onClick={() => setHelpOpen((current) => !current)}
