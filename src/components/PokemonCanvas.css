@@ -29,3 +29,7 @@
 .canvasBackground.preset4 {
   background-image: url('../assets/idealsbackground.png');
 }
+
+.canvasBackground.preset5 {
+  background-image: url('../assets/loopedspace.gif');
+}

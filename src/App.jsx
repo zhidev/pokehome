@@ -48,7 +48,21 @@ function App() {
   }
 
 function applyPreset(selectedPreset) {
-  setCanvasBackground(selectedPreset);
+  setCanvasBackground((currentBackground) => {
+
+    //If the old background was a custom uploaded image,
+    //release its temporary browser URL.
+    if (
+      currentBackground &&
+      currentBackground.startsWith("blob:") &&
+      currentBackground !== selectedPreset
+    ) {
+      URL.revokeObjectURL(currentBackground);
+    }
+
+    return selectedPreset;
+  });
+  
 }
 
   function onSubmit(event) {

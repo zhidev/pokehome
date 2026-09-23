@@ -27,7 +27,21 @@ function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, eraseMode, br
                 {canvasBackground && (
                     <ViewportPortal>
                         <div
-                            className={`canvasBackground ${canvasBackground}`}
+                        className={`canvasBackground ${
+                            canvasBackground.startsWith("blob:") ? "" : canvasBackground
+                        }`}
+                        style={
+                            canvasBackground.startsWith("blob:")
+                            ? { 
+                                backgroundImage: `url(${canvasBackground})`,
+                                backgroundSize: "contain"
+                                        // for actual size
+                                        // backgroundSize: "auto",
+                                        // backgroundRepeat: "no-repeat",
+                                        // backgroundPosition: "center"
+                            }
+                            : {}
+                        }
                         />
                     </ViewportPortal>
                 )}

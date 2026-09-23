@@ -29,7 +29,7 @@
     -1px  1px 0 black,
      1px  1px 0 black;
 
- box-shadow: 0 0 4px black,
+    box-shadow: 0 0 4px black;
 }
 
 .presetDescription {
@@ -64,7 +64,32 @@
 
   border: 2px solid white;
 
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 2px black;
+
+  cursor: pointer;
+}
+
+.customImagePreview {
+  width: 80px;
+  height: 45px;
+  object-fit: cover;
+
+  margin-top: 8px;
+
+  border: 1px solid black;
+
+  box-shadow: 0 0 2px black;
+}
+
+.presetSelector input[type="file"]::file-selector-button {
+  padding: 6px 12px;
+
+  background-color: black;
+  color: white;
+
+  border: 2px solid white;
+
+  box-shadow: 0 0 2px black;
 
   cursor: pointer;
 }

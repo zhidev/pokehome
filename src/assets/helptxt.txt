@@ -2,12 +2,16 @@ Simple Functionalities
 
 You can drag your friends around yippie! 
 
+Mouse wheel to zoom in and out, you can also pan around within the space.
+
 You can draw on their plaing field! And zoom in and out and move around a bit.
 
 Selecting the ditto lets you change colors! Remember to stop drawing to move stuff around!
 
-Enter draw mode disables erase mode and vice versa. Clear canvas to get rid of all drawings (and pokemon nodes, need fix this later)
+Enter draw mode disables erase mode and vice versa. Clear canvas to get rid of all drawings (and pokemon nodes)
 
 Click the pokeball to open the RotomDex and you can import your box. Or just import random mons with just their name Capitalized 
 
-Some presets loaded for background. Will do a proper credits page
+Some presets loaded for background
+
+Can upload custom background as well, will sretch though. More on that later
