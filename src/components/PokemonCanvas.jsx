@@ -11,7 +11,7 @@ const CANVAS_EXTENT = [
 function PokemonCanvas({nodes, nodeTypes, onNodesChange, drawMode, eraseMode, brushColor, 
     canvasReset, setCanvasReset, setReactFlowInstance, canvasBackground}){
     return (
-        <div style={{ width: '100vw', height: '90vh' }}>
+        <div style={{ width: '100vw', height: '100vh' }}>
             <ReactFlow 
             nodes={nodes} 
             edges={[]} 
