@@ -14,9 +14,16 @@ export function parsePokemonImport(text) {
     if(!cleanedLine){
       return
     }
-
+    
     //Trim for items, grab first index before @ 
-    const species = cleanedLine.split('@')[0].trim()
+    let species = cleanedLine.split('@')[0].trim()
+
+    //If format is "Nickname (Pokemon)", use only the Pokemon inside ()
+    const nicknameMatch = species.match(/\(([^)]+)\)$/)
+
+    if (nicknameMatch) {
+      species = nicknameMatch[1]
+    }
 
     if(validPokemon.has(species)){
       exportPokemonList.push({
