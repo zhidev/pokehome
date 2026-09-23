@@ -1,2 +1,18 @@
 Sprites thanks to https://github.com/May8th1995
 Primarily used ReactFlow for interactability functionality
+
+-Drop in your friends with an export of your save file by clicking the pokeball to open the rotomdex, or just enter in names
+
+-You can drag your friends around yippie! 
+
+-Mouse wheel to zoom in and out, you can also pan around within the space.
+
+-You can draw on their playing field! And zoom in and out and move around a bit will scale with your friends
+
+-Selecting the ditto lets you change colors! Reselect to exit draw/erase mode
+
+-Enter draw mode disables erase mode and vice versa. Clear canvas to get rid of all drawings (and pokemon nodes)
+
+Some presets loaded for background
+
+Can upload custom background as well, will sretch though.
